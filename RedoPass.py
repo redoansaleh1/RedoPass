@@ -1,3 +1,4 @@
+
 '''
                               project introuduction
 Today we are Create A strong Password Generator app.
@@ -37,15 +38,12 @@ class passwordGenerator():
         self.Title=Label(self.root,text='Generate Your Password',bg='black',fg='white')
         self.Title.grid(row=0,column=0)
         
-        #Create OptionMenu for input the length of password from user.
+        #Create Scale for input the length of password from user.
         
-        self.lengthLabel=Label(self.root,text='Length of Password: ',bg='black',fg='white')
-        self.lengthLabel.grid(row=1,column=0)
-        self.lengthValue = StringVar()
-        self.sizes=('8','9','10','11','12','13','14','15', '16' ,'17' ,'18', '19' ,'20')
-        self.length = OptionMenu(self.root, self.lengthValue, *self.sizes)
-        self.length.grid(row=1,column=1)
-        self.lengthValue.set(self.sizes[0])
+        self.askLengthLabel=Label(self.root,text='Length of Password: ',bg='black',fg='white')
+        self.askLengthLabel.grid(row=1,column=0)
+        self.lengthOfPassword = Scale(self.root,from_=8,to=50,orient=HORIZONTAL)
+        self.lengthOfPassword.grid(row=1,column=1)
         
         #Create CheckButtons for asking the user that which character set the user want on the password.
         
@@ -104,7 +102,7 @@ class passwordGenerator():
             
             if self.lowercase.get()==1 and self.uppercase.get()==1 and self.Number.get()==1 and self.Symbols.get()==1:
                 self.password=''
-                for _ in range(int(self.lengthValue.get())):
+                for _ in range(int(self.lengthOfPassword.get())):
                         self.password+=chr(randint(33,126))
                 self.output['text']=self.password
                 return None
@@ -113,7 +111,7 @@ class passwordGenerator():
             
             if self.lowercase.get()==1 and self.uppercase.get()==0 and self.Number.get()==0 and self.Symbols.get()==0:
                 self.password=''
-                for _ in range(int(self.lengthValue.get())):
+                for _ in range(int(self.lengthOfPassword.get())):
                         self.password+=chr(randint(97,122))
                 self.output['text']=self.password
                 return None
@@ -122,7 +120,7 @@ class passwordGenerator():
                         
             if self.lowercase.get()==0 and self.uppercase.get()==1 and self.Number.get()==0 and self.Symbols.get()==0:
                 self.password=''
-                for _ in range(int(self.lengthValue.get())):
+                for _ in range(int(self.lengthOfPassword.get())):
                         self.password+=chr(randint(65,90))
                 self.output['text']=self.password
                 return None               
@@ -131,7 +129,7 @@ class passwordGenerator():
 
             if self.lowercase.get()==0 and self.uppercase.get()==0 and self.Number.get()==1 and self.Symbols.get()==0:
                 self.password=''
-                for _ in range(int(self.lengthValue.get())):
+                for _ in range(int(self.lengthOfPassword.get())):
                         self.password+=chr(randint(48,57))
                 self.output['text']=self.password
                 return None                                        
@@ -140,7 +138,7 @@ class passwordGenerator():
             
             if self.lowercase.get()==0 and self.uppercase.get()==0 and self.Number.get()==0 and self.Symbols.get()==1:
                 self.password=''
-                for _ in range(int(self.lengthValue.get())):
+                for _ in range(int(self.lengthOfPassword.get())):
                         self.char1=randint(33,47)
                         self.char2=randint(58,64)
                         self.char3=randint(91,96)
@@ -154,7 +152,7 @@ class passwordGenerator():
             
             if self.lowercase.get()==1 and self.uppercase.get()==1 and self.Number.get()==0 and self.Symbols.get()==0:
                 self.password=''
-                for _ in range(int(self.lengthValue.get())):
+                for _ in range(int(self.lengthOfPassword.get())):
                         self.char1=randint(97,122)
                         self.char2=randint(65,90)
                         self.final_char=choice((self.char1,self.char2))
@@ -166,7 +164,7 @@ class passwordGenerator():
             
             if self.lowercase.get()==0 and self.uppercase.get()==1 and self.Number.get()==1 and self.Symbols.get()==0:
                 self.password=''
-                for _ in range(int(self.lengthValue.get())):
+                for _ in range(int(self.lengthOfPassword.get())):
                         self.char1=randint(48,57)
                         self.char2=randint(65,90)
                         self.final_char=choice((self.char1,self.char2))
@@ -178,7 +176,7 @@ class passwordGenerator():
             
             if self.lowercase.get()==1 and self.uppercase.get()==0 and self.Number.get()==1 and self.Symbols.get()==0:
                 self.password=''
-                for _ in range(int(self.lengthValue.get())):
+                for _ in range(int(self.lengthOfPassword.get())):
                         self.char1=randint(48,57)
                         self.char2=randint(97,122)
                         self.final_char=choice((self.char1,self.char2))
@@ -190,7 +188,7 @@ class passwordGenerator():
             
             if self.lowercase.get()==1 and self.uppercase.get()==0 and self.Number.get()==0 and self.Symbols.get()==1:
                 self.password=''
-                for _ in range(int(self.lengthValue.get())):
+                for _ in range(int(self.lengthOfPassword.get())):
                         self.char1=randint(33,47)
                         self.char2=randint(58,64)
                         self.char3=randint(91,96)
@@ -205,7 +203,7 @@ class passwordGenerator():
             
             if self.lowercase.get()==0 and self.uppercase.get()==1 and self.Number.get()==0 and self.Symbols.get()==1:
                 self.password=''
-                for _ in range(int(self.lengthValue.get())):
+                for _ in range(int(self.lengthOfPassword.get())):
                         self.char1=randint(33,47)
                         self.char2=randint(58,64)
                         self.char3=randint(91,96)
@@ -220,7 +218,7 @@ class passwordGenerator():
             
             if self.lowercase.get()==0 and self.uppercase.get()==0 and self.Number.get()==1 and self.Symbols.get()==1:
                 self.password=''
-                for _ in range(int(self.lengthValue.get())):
+                for _ in range(int(self.lengthOfPassword.get())):
                         self.char1=randint(33,47)
                         self.char2=randint(58,64)
                         self.char3=randint(91,96)
@@ -235,7 +233,7 @@ class passwordGenerator():
             
             if self.lowercase.get()==1 and self.uppercase.get()==0 and self.Number.get()==1 and self.Symbols.get()==1:
                 self.password=''
-                for _ in range(int(self.lengthValue.get())):
+                for _ in range(int(self.lengthOfPassword.get())):
                         self.char1=randint(33,47)
                         self.char2=randint(58,64)
                         self.char3=randint(91,96)
@@ -251,7 +249,7 @@ class passwordGenerator():
             
             if self.lowercase.get()==0 and self.uppercase.get()==1 and self.Number.get()==1 and self.Symbols.get()==1:
                 self.password=''
-                for _ in range(int(self.lengthValue.get())):
+                for _ in range(int(self.lengthOfPassword.get())):
                         self.char1=randint(33,47)
                         self.char2=randint(58,64)
                         self.char3=randint(91,96)
@@ -267,7 +265,7 @@ class passwordGenerator():
             
             if self.lowercase.get()==1 and self.uppercase.get()==1 and self.Number.get()==0 and self.Symbols.get()==1:
                 self.password=''
-                for _ in range(int(self.lengthValue.get())):
+                for _ in range(int(self.lengthOfPassword.get())):
                         self.char1=randint(33,47)
                         self.char2=randint(58,64)
                         self.char3=randint(91,96)
@@ -283,7 +281,7 @@ class passwordGenerator():
             
             if self.lowercase.get()==1 and self.uppercase.get()==1 and self.Number.get()==1 and self.Symbols.get()==0:
                 self.password=''
-                for _ in range(int(self.lengthValue.get())):
+                for _ in range(int(self.lengthOfPassword.get())):
                         self.char1=randint(48,57)
                         self.char2=randint(97,122)
                         self.char3=randint(65,90)
